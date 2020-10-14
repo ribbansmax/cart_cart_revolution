@@ -6,4 +6,8 @@ class ShoppingCart
     @capacity = capacity.delete_suffix("items").to_i
     @products = []
   end
+
+  def add_product(product)
+    @products << product
+  end
 end
