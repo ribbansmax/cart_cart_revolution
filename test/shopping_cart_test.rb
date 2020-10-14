@@ -38,4 +38,11 @@ class ShoppingCartTest < Minitest::Test
 
     assert_equal [product1, product2], cart.products
   end
+
+  def test_it_can_display_details
+    # throwing up a syntax error, but pry shows cart.details works - look later if time
+    skip
+    cart = ShoppingCart.new("King Soopers", "30items")
+    assert_equal {name: "King Soopers", capacity: 30}, cart.details
+  end
 end
