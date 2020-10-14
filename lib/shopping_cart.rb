@@ -18,10 +18,13 @@ class ShoppingCart
       product.quantity
     end
     @is_full = true if total_products >= capacity
-
   end
 
   def is_full?
     is_full
+  end
+
+  def products_by_category(category)
+    @products.select {|product| product.category == category}
   end
 end
