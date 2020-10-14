@@ -41,9 +41,10 @@ class ShoppingCartTest < Minitest::Test
 
   def test_it_can_display_details
     # throwing up a syntax error, but pry shows cart.details works - look later if time
-    skip
+    # fixed it with the () around the hash
+
     cart = ShoppingCart.new("King Soopers", "30items")
-    # assert_equal {name: "King Soopers", capacity: 30}, cart.details
+    assert_equal ({name: "King Soopers", capacity: 30}), cart.details
   end
 
   def test_it_is_not_full_by_default
@@ -118,5 +119,6 @@ class ShoppingCartTest < Minitest::Test
     cart.add_product(product4)
 
     assert_instance_of Hash, cart.product_breakdown
+    assert_equal ({:meat => [product2], :paper => [product1, product3], :produce => [product4]}), cart.product_breakdown
   end
 end
